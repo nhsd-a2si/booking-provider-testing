@@ -32,8 +32,26 @@
         [Given(@"I add the allergies parameter with resolvedAllergies set to ""(.*)""")]
         public void GivenIAddTheAllergiesParameterWithResolvedAllergiesSetTo(string partValue)
         {
-            IEnumerable<Tuple<string, Base>> tuples = new Tuple<string, Base>[] { Tuple.Create(FhirConst.GetStructuredRecordParams.kResolvedAllergies, (Base)new FhirBoolean(Boolean.Parse(partValue))) };
-            _httpContext.HttpRequestConfiguration.BodyParameters.Add(FhirConst.GetStructuredRecordParams.kAllergies, tuples);
+            ParameterComponent pc = new ParameterComponent();
+
+            ParameterComponent resolved = new ParameterComponent();
+            resolved.Name = FhirConst.GetStructuredRecordParams.kResolvedAllergies;
+            resolved.Value = new FhirBoolean(Boolean.Parse(partValue));
+
+            ParameterComponent resolved2 = new ParameterComponent();
+            resolved2.Name = FhirConst.GetStructuredRecordParams.kResolvedAllergies;
+            resolved2.Value = new FhirBoolean(Boolean.Parse(partValue));
+
+            List<ParameterComponent> listParamComps = new List<ParameterComponent> { resolved, resolved2 };
+            pc.Part = listParamComps;
+            
+            IEnumerable <Tuple<string, Base>> tuples = new Tuple<string, Base>[] 
+            {
+                Tuple.Create(FhirConst.GetStructuredRecordParams.kSection, (Base)new Code(FhirConst.GetStructuredRecordParams.kAllergies)),
+                Tuple.Create(FhirConst.GetStructuredRecordParams.kSectionParams, (Base)pc)
+            };
+            _httpContext.HttpRequestConfiguration.BodyParameters.Add(FhirConst.GetStructuredRecordParams.kRecord, tuples);
+
         }
 
         [Given(@"I add the allergies parameter")]

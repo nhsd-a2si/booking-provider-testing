@@ -14,8 +14,11 @@
         internal static class GetStructuredRecordParams
         {
             public const string kPatientNHSNumber = "patientNHSNumber";
-            public const string kAllergies = "includeAllergies";
-            public const string kMedication = "includeMedication";
+            public const string kRecord = "recordSection";
+            public const string kSection = "sectionName";
+            public const string kSectionParams = "sectionParameters";
+            public const string kAllergies = "ALLERGIES";
+            public const string kMedication = "MEDICATION";
             public const string kStartDate = "start";
             public const string kEndDate = "end";
             public const string kResolvedAllergies = "includeResolvedAllergies";
