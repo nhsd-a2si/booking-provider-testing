@@ -135,6 +135,11 @@
                 handler.Proxy = new WebProxy(new Uri(_httpRequestConfiguration.WebProxyAddress, UriKind.Absolute));
             }
 
+            if (_httpRequestConfiguration.UseSpineProxy)
+            {
+                handler.Proxy = new WebProxy(new Uri(_httpRequestConfiguration.SpineProxyAddress, UriKind.Absolute));
+            }
+
             return handler;
         }
 
@@ -144,7 +149,7 @@
 
             return new HttpClient(handler)
             { 
-                BaseAddress = new Uri(_httpRequestConfiguration.BaseUrl),
+                BaseAddress = new Uri(_httpRequestConfiguration.ProviderAddress),
                 Timeout = new TimeSpan(0, 0, 10, 0)
             };
         }
