@@ -149,7 +149,7 @@
 
             return new HttpClient(handler)
             { 
-                BaseAddress = new Uri(_httpRequestConfiguration.ProviderAddress),
+                BaseAddress = new Uri(_httpRequestConfiguration.BaseUrl),
                 Timeout = new TimeSpan(0, 0, 10, 0)
             };
         }

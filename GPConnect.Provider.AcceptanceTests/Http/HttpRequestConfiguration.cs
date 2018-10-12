@@ -86,7 +86,8 @@
         {
             var sspAddress = UseSpineProxy ? SpineProxyAddress + "/" : string.Empty;
 
-            var baseUrl = sspAddress + Protocol + FhirServerUrl + ":" + FhirServerPort + FhirServerFhirBase;
+            //var baseUrl = sspAddress + Protocol + FhirServerUrl + ":" + FhirServerPort + FhirServerFhirBase;
+            var baseUrl = Protocol + FhirServerUrl + ":" + FhirServerPort + FhirServerFhirBase;
 
             if (baseUrl[baseUrl.Length - 1] != '/')
             {
