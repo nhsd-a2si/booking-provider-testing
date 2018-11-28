@@ -2,9 +2,9 @@
 
 # GP Connect Provider Automated Test Suite
 
-This project provides a test suite to test server implementations of the [GP Connect](https://nhsconnect.github.io/gpconnect/) specification.
+This project provides a test suite to test server implementations of the [Care Connect](https://nhsconnect.github.io/FHIR-A2SI-APPOINTMENTS-API/index.html) specification.
 
-Please see the [GP Connect Provider Testing Wiki](https://github.com/nhsconnect/gpconnect-provider-testing/wiki) for further details of test scenarios and steps.
+Please see the [Care Connect Appointment Standard](TBC) for further details of tests.
 
 ## Setup
 The tests use a specific set of patients (numbered 1-15 e.g. patient1, patient2...) when making calls to endpoints. In order for these tests to pass, the data held on the target server must match the expected conditions defined in the patients file:
@@ -37,8 +37,8 @@ By default, the test suite points to the public [Demonstrator](http://ec2-54-194
 Note: *This assumes the project has already been checked out and the appropriate modifications described in the Setup and Config sections have already been made.*
 
 Install 2 plugins:
-* SpecFlow
-* NUnit 3 Test Adapter
+* [SpecFlow](https://marketplace.visualstudio.com/items?itemName=TechTalkSpecFlowTeam.SpecFlowforVisualStudio2017)
+* [NUnit 3 Test Adapter] (https://marketplace.visualstudio.com/items?itemName=NUnitDevelopers.NUnit3TestAdapter)
 
 Open the project then open the Test Explorer Window (Test -> Windows -> Test Explorer). Here you should have to option to Run All tests.
 
